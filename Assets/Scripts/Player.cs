@@ -43,7 +43,7 @@ public class Player : MonoBehaviour {
 		_hasHitSomething = true;
 	}
 
-	public bool HasHitSomethig() {
+	public bool HasHitSomething() {
 		return _hasHitSomething;
 	}
 

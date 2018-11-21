@@ -19,11 +19,11 @@ public class AsteroidSpawner : MonoBehaviour {
 	void Start () {
 
 		for (int i = 0; i < _startSpawn; i++) {
-			CreateAsteriod();
+			CreateAsteroid();
 		}
 	}
 
-	private void CreateAsteriod() {
+	private void CreateAsteroid() {
 		var go = Instantiate(AsteroidPrefab, GetRandomPosNotOnPlayer(), Quaternion.identity, transform);
 		var a = go.GetComponent<Asteroid>();
 
@@ -31,7 +31,6 @@ public class AsteroidSpawner : MonoBehaviour {
 	}
 
 	private Vector3 GetTargetNearPlayer() {
-
 		var pX = Player.transform.position.x;
 		var pY = Player.transform.position.y;
 		var randomPos = Random.insideUnitCircle * (_spawnTargetRange);
@@ -39,18 +38,6 @@ public class AsteroidSpawner : MonoBehaviour {
 	}
 
 	private Vector3 GetRandomPosNotOnPlayer() {
-
-		//var pX = Player.transform.position.x;
-		//var pY = Player.transform.position.y;
-
-		//return Random.insideUnitCircle* _spawnFromPlayerRange;
-
-/*			float angle = Random.Range (0f, Mathf.PI * 2);
-			float x = Mathf.Sin (angle) * _spawnFromPlayerRange;
-			float y = Mathf.Cos (angle) * _spawnFromPlayerRange;
-
-			return new Vector2 (x+pX, y+pY);*/
-		
 		var outsides = (Random.insideUnitCircle.normalized * _spawnFromPlayerRange);
 		var randomPos = Player.transform.position + new Vector3(outsides.x, outsides.y, 0);
 		return randomPos;
@@ -60,7 +47,7 @@ public class AsteroidSpawner : MonoBehaviour {
 	void Update () {
 		if (Time.time > _nextFire)
 		{
-			CreateAsteriod();
+			CreateAsteroid();
 			_nextFire = Time.time + _fireRate;
 	
 		}

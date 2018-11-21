@@ -8,6 +8,7 @@ public class Score : MonoBehaviour {
 	public Player Player;
 	private TextMeshProUGUI _text;
 	private float _timer = 0;	
+	
 	// Use this for initialization
 	void Start () {
 
@@ -17,7 +18,7 @@ public class Score : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Player.HasHitSomethig()) {
+		if (Player.HasHitSomething()) {
 			_timer = 0;
 			Player.ResetHasHitSomething();
 		}

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEditor.Experimental.UIElements;
+﻿using System.Linq;
 using UnityEngine;
 
 public class Asteroid : MonoBehaviour {
@@ -45,13 +42,7 @@ public class Asteroid : MonoBehaviour {
 	}
 
 	public void BombsAway(Vector3 target) {
-		// Bombs away!
-		
-		//_rb.AddForce(new Vector2(
-		//	Random.Range(3, 10), 
-		//	Random.Range(3, 10)));
 		_force = (target - transform.position).normalized * Random.Range(_minSpeed, _maxSpeed);
-
 	}
 
 	private Vector3 HexCorner(Vector3 center, float size, int i) {
